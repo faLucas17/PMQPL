@@ -3,9 +3,9 @@
 from collections import namedtuple
 
 Membre = namedtuple("Membre", ["nom", "role"])
-Tache = namedtuple("Tache", ["nom", "description",
-                             "date_debut", "date_fin",
-                             "responsable", "statut"])
+Tache = namedtuple(
+    "Tache", ["nom", "description", "date_debut", "date_fin", "responsable", "statut"]
+)
 Jalon = namedtuple("Jalon", ["nom", "date"])
 Risque = namedtuple("Risque", ["description", "probabilite", "impact"])
 Changement = namedtuple("Changement", ["description", "version", "date"])
