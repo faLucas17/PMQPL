@@ -13,7 +13,9 @@ class NotificationStrategy(ABC):
 
     def configurer(self, configuration):
         """Configurer la stratégie de notification."""
-        pass
+        raise NotImplementedError(
+            "Implémentez la logique de configuration spécifique ici"
+        )
 
 
 class EmailNotificationStrategy(NotificationStrategy):
@@ -25,12 +27,12 @@ class EmailNotificationStrategy(NotificationStrategy):
 
     def configurer(self, configuration):
         """Configurer la stratégie d'e-mail."""
-        # Implémentez la logique de configuration spécifique à l'e-mail ici
-        raise NotImplementedError("Implémentez la logique de configuration spécifique à l'e-mail ici")
+        raise NotImplementedError(
+            "Implémentez la logique de configuration spécifique à l'e-mail ici"
+        )
 
     def envoyer_email(self, destinataire, sujet, contenu):
         """Envoyer un e-mail."""
-        # Implémentez la logique d'envoi d'e-mail ici
         raise NotImplementedError("Implémentez la logique d'envoi d'e-mail ici")
 
 
@@ -43,13 +45,39 @@ class SMSNotificationStrategy(NotificationStrategy):
 
     def configurer(self, configuration):
         """Configurer la stratégie de SMS."""
-        # Implémentez la logique de configuration spécifique au SMS ici
-        raise NotImplementedError("Implémentez la logique de configuration spécifique au SMS ici")
+        raise NotImplementedError(
+            "Implémentez la logique de configuration spécifique au SMS ici"
+        )
 
     def envoyer_sms(self, numero, message):
         """Envoyer un SMS."""
-        # Implémentez la logique d'envoi de SMS ici
         raise NotImplementedError("Implémentez la logique d'envoi de SMS ici")
+
+
+class PushNotificationStrategy(NotificationStrategy):
+    """Stratégie de notification par push."""
+
+    def envoyer(self, message):
+        """Envoyer la notification par push."""
+        print(f"Notification envoyée par push: {message}")
+
+    def configurer(self, configuration):
+        """Configurer la stratégie de push."""
+        raise NotImplementedError(
+            "Implémentez la logique de configuration spécifique au push ici"
+        )
+
+    def envoyer_push(self, destinataire, titre, contenu):
+        """Envoyer une notification push."""
+        raise NotImplementedError("Implémentez la logique d'envoi de push ici")
+
+    def definir_priorite(self, priorite):
+        """Définir la priorité de la notification push."""
+        print(f"Priorité de la notification définie à: {priorite}")
+
+    def verifier_etat(self):
+        """Vérifier l'état de la notification push."""
+        print("État de la notification push vérifié")
 
 
 class NotificationContext:
