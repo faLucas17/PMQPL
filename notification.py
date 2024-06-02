@@ -3,7 +3,7 @@
 from abc import ABC, abstractmethod
 
 
-class NotificationStrategy:
+class NotificationStrategy(ABC):
     """Stratégie de notification de base."""
 
     @abstractmethod
@@ -26,14 +26,12 @@ class EmailNotificationStrategy(NotificationStrategy):
     def configurer(self, configuration):
         """Configurer la stratégie d'e-mail."""
         # Implémentez la logique de configuration spécifique à l'e-mail ici
-        raise NotImplementedError(
-            "Implémentez la logique de " "configuration spécifique à l'e-mail ici"
-        )
+        raise NotImplementedError("Implémentez la logique de configuration spécifique à l'e-mail ici")
 
     def envoyer_email(self, destinataire, sujet, contenu):
         """Envoyer un e-mail."""
         # Implémentez la logique d'envoi d'e-mail ici
-        raise NotImplementedError("Implémentez la " "logique d'envoi d'e-mail ici")
+        raise NotImplementedError("Implémentez la logique d'envoi d'e-mail ici")
 
 
 class SMSNotificationStrategy(NotificationStrategy):
@@ -46,9 +44,7 @@ class SMSNotificationStrategy(NotificationStrategy):
     def configurer(self, configuration):
         """Configurer la stratégie de SMS."""
         # Implémentez la logique de configuration spécifique au SMS ici
-        raise NotImplementedError(
-            "Implémentez la logique de" " configuration spécifique au SMS ici"
-        )
+        raise NotImplementedError("Implémentez la logique de configuration spécifique au SMS ici")
 
     def envoyer_sms(self, numero, message):
         """Envoyer un SMS."""
